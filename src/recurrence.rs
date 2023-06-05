@@ -65,7 +65,7 @@ pub enum WeekIndex {
     Last,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum RecurrencePatternType {
     #[default]

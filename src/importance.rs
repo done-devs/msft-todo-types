@@ -1,10 +1,10 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum Importance {
-	#[default]
-	Low,
-	Normal,
-	High,
+    #[default]
+    Low,
+    Normal,
+    High,
 }

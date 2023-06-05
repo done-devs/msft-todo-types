@@ -7,7 +7,7 @@ pub struct Body {
     pub content_type: BodyType,
 }
 
-#[derive(Serialize, Deserialize, Debug, Default, Clone)]
+#[derive(Serialize, Deserialize, Debug, Default, Clone, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum BodyType {
     #[default]
