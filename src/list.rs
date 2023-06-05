@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 pub struct ToDoTaskList {
     pub display_name: String,
     pub id: String,
-    pub is_owner: String,
-    pub is_shared: String,
+    pub is_owner: bool,
+    pub is_shared: bool,
     pub wellknown_list_name: String,
 }
