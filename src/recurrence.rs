@@ -1,14 +1,14 @@
 use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub struct Recurrence {
     pub pattern: RecurrencePattern,
     pub range: RecurrenceRange,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub struct RecurrenceRange {
     pub end_date: NaiveDate,
@@ -19,7 +19,7 @@ pub struct RecurrenceRange {
     pub recurrence_range_type: RecurrenceRangeType,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum RecurrenceRangeType {
     #[default]
@@ -28,7 +28,7 @@ pub enum RecurrenceRangeType {
     Numbered,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub struct RecurrencePattern {
     pub day_of_month: i32,
@@ -41,7 +41,7 @@ pub struct RecurrencePattern {
     pub recurrence_pattern_type: RecurrencePatternType,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum DayOfWeek {
     #[default]
@@ -54,7 +54,7 @@ pub enum DayOfWeek {
     Saturday,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone, Default)]
+#[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum WeekIndex {
     #[default]
