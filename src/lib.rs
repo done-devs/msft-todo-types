@@ -1,3 +1,4 @@
+pub mod checklist_item;
 pub mod list;
 pub mod body;
 pub mod collection;
