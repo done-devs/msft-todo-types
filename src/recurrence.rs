@@ -1,4 +1,4 @@
-use chrono::{DateTime, Local};
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
@@ -11,10 +11,10 @@ pub struct Recurrence {
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub struct RecurrenceRange {
-    end_date: DateTime<Local>,
+    end_date: DateTime<Utc>,
     number_of_occurrences: i32,
     recurrence_time_zone: String,
-    start_date: DateTime<Local>,
+    start_date: DateTime<Utc>,
     #[serde(rename = "type")]
     recurrence_range_type: RecurrenceRangeType,
 }
