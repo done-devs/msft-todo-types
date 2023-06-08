@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Default, Clone)]
 #[serde(rename_all = "camelCase")]
-pub struct Body {
+pub struct ItemBody {
     pub content: String,
     pub content_type: BodyType,
 }

@@ -1,26 +1,25 @@
 use serde::{Deserialize, Serialize};
 
 use crate::{
-    body::Body, checklist_item::ChecklistItem, date_time_zone::DateTimeTimeZone,
-    importance::Importance, recurrence::Recurrence, status::Status,
+    body::ItemBody, checklist_item::ChecklistItem, date_time_zone::DateTimeTimeZone,
+    importance::TaskImportance, recurrence::TaskRecurrence, status::TaskStatus,
 };
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct ToDoTask {
     pub id: String,
-    pub body: Body,
+    pub body: ItemBody,
     pub categories: Vec<String>,
     pub completed_date_time: Option<DateTimeTimeZone>,
     pub due_date_time: Option<DateTimeTimeZone>,
-    pub importance: Importance,
+    pub importance: TaskImportance,
     pub is_reminder_on: bool,
-    pub recurrence: Recurrence,
+    pub recurrence: Option<TaskRecurrence>,
     pub title: String,
-    pub status: Status,
+    pub status: TaskStatus,
     pub has_attachments: bool,
-    pub checklist_items: Vec<ChecklistItem>,
-    pub body_last_modified_date_time: String,
+    pub checklist_items: Option<Vec<ChecklistItem>>,
     pub created_date_time: String,
     pub last_modified_date_time: String,
     pub reminder_date_time: Option<DateTimeTimeZone>,

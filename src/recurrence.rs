@@ -1,44 +1,43 @@
-use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
-pub struct Recurrence {
-    pub pattern: RecurrencePattern,
-    pub range: RecurrenceRange,
+pub struct TaskRecurrence {
+    pub pattern: TaskRecurrencePattern,
+    pub range: TaskRecurrenceRange,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
-pub struct RecurrenceRange {
-    end_date: DateTime<Utc>,
-    number_of_occurrences: i32,
-    recurrence_time_zone: String,
-    start_date: DateTime<Utc>,
+pub struct TaskRecurrenceRange {
     #[serde(rename = "type")]
-    recurrence_range_type: RecurrenceRangeType,
+    recurrence_type: RecurrenceRangeType,
+    start_date: Option<String>,
+    end_date: Option<String>,
+    recurrence_time_zone: String,
+    number_of_occurrences: i32,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
 pub enum RecurrenceRangeType {
-    #[default]
     EndDate,
+    #[default]
     NoEnd,
     Numbered,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "camelCase")]
-pub struct RecurrencePattern {
+pub struct TaskRecurrencePattern {
+    #[serde(rename = "type")]
+    pub recurrence_pattern_type: RecurrencePatternType,
+    pub interval: i32,
+    pub month: i32,
     pub day_of_month: i32,
     pub days_of_week: Vec<DayOfWeek>,
     pub first_day_of_week: DayOfWeek,
     pub index: Option<WeekIndex>,
-    pub interval: i32,
-    pub month: i32,
-    #[serde(rename = "type")]
-    pub recurrence_pattern_type: RecurrencePatternType,
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone, Default, PartialEq, Eq, PartialOrd, Ord)]
